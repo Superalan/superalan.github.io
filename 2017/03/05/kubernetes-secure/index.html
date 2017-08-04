@@ -93,7 +93,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="kubernetes,技术," />
 
 
 
@@ -109,14 +109,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="安全机制kube-apiserver是整个kubernetes集群的核心，无论是kubectl还是通过api管理集群，最终都会落到与kube-apiserver的交互，apiserver是集群管理命令的入口。kube-apiserver同时监听两个端口：insecure-port和secure-port。通过insecure-port进入apiserver的流量可以有控制整个集群的全部权限，这个端">
+<meta name="keywords" content="kubernetes,技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes安全">
+<meta property="og:url" content="http://yoursite.com/2017/03/05/kubernetes-secure/index.html">
 <meta property="og:site_name" content="superalan&#39;s blog">
+<meta property="og:description" content="安全机制kube-apiserver是整个kubernetes集群的核心，无论是kubectl还是通过api管理集群，最终都会落到与kube-apiserver的交互，apiserver是集群管理命令的入口。kube-apiserver同时监听两个端口：insecure-port和secure-port。通过insecure-port进入apiserver的流量可以有控制整个集群的全部权限，这个端">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-04T03:10:51.000Z">
+<meta property="og:image" content="https://kubernetes.io/images/docs/admin/access-control-overview.svg">
+<meta property="og:updated_time" content="2017-08-04T03:35:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="Kubernetes安全">
+<meta name="twitter:description" content="安全机制kube-apiserver是整个kubernetes集群的核心，无论是kubectl还是通过api管理集群，最终都会落到与kube-apiserver的交互，apiserver是集群管理命令的入口。kube-apiserver同时监听两个端口：insecure-port和secure-port。通过insecure-port进入apiserver的流量可以有控制整个集群的全部权限，这个端">
+<meta name="twitter:image" content="https://kubernetes.io/images/docs/admin/access-control-overview.svg">
 
 
 
@@ -145,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/05/kubernetes-secure/"/>
 
 
 
 
 
-  <title>分类 | superalan's blog</title>
+  <title>Kubernetes安全 | superalan's blog</title>
   
 
 
@@ -306,40 +312,238 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/05/kubernetes-secure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alan Sun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="superalan's blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/kubernetes/">kubernetes</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Kubernetes安全</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-05T01:04:29+08:00">
+                2017-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kubernetes/" itemprop="url" rel="index">
+                    <span itemprop="name">kubernetes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/03/05/kubernetes-secure/" class="leancloud_visitors" data-flag-title="Kubernetes安全">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="安全机制"><a href="#安全机制" class="headerlink" title="安全机制"></a>安全机制</h2><p>kube-apiserver是整个kubernetes集群的核心，无论是kubectl还是通过api管理集群，最终都会落到与kube-apiserver的交互，apiserver是集群管理命令的入口。kube-apiserver同时监听两个端口：insecure-port和secure-port。通过insecure-port进入apiserver的流量可以有控制整个集群的全部权限，这个端口一般是为了集群bootstrap或集群开发调试使用的；而通过secure-port的流量将经过k8s的安全机制的重重考验。官方文档建议：集群外部流量都应该走secure port。insecure-port可通过firewall rule使外部流量unreachable。</p>
+<p>下面这幅图说明了请求apiserver的过程：</p>
+<p><img src="https://kubernetes.io/images/docs/admin/access-control-overview.svg" alt="Api server流程"></p>
+<p>这其中包含三个环节，认证、授权、admission control。</p>
+<a id="more"></a>
+<h2 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h2><p>认证环节包括两部分，一部分是外部访问集群的安全控制，一部分是集群访问节点的安全控制。</p>
+<ul>
+<li>-&gt;Master: 需要在apiserver中配置根证书及服务端证书</li>
+<li>Master-&gt;node: </li>
+</ul>
+<p>后者暂不考虑。</p>
+<p>在认证步骤中主要是对HTTP请求的header/客户端证书做验证。认证模块包括：</p>
+<ul>
+<li>客户端证书</li>
+<li>密码</li>
+<li>简单token</li>
+<li>启动token</li>
+<li>JWT token</li>
+</ul>
+<p>如果认证失败，HTTP请求会被拒绝并返回401返回码；反之，系统会根据<code>username</code>内容，明确请求用户身份。但系统不会将用户信息存储。</p>
+<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><p>认证身份之后，系统会对用户进行授权操作，从而使用户具备具体的操作权限。在系统中可以对用户进行操作授权规则定义，一个简单的规则如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 定义用户bob具有projectCaribou空间的pod只读权限</div><div class="line">&#123;</div><div class="line">    &quot;apiVersion&quot;: &quot;abac.authorization.kubernetes.io/v1beta1&quot;,</div><div class="line">    &quot;kind&quot;: &quot;Policy&quot;,</div><div class="line">    &quot;spec&quot;: &#123;</div><div class="line">        &quot;user&quot;: &quot;bob&quot;,</div><div class="line">        &quot;namespace&quot;: &quot;projectCaribou&quot;,</div><div class="line">        &quot;resource&quot;: &quot;pods&quot;,</div><div class="line">        &quot;readonly&quot;: true</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>系统支持多种授权模块，例如ABAC、RBAC以及webhook等。系统管理员在集群构建的时候，需要在apiserver中指定需要使用的授权模块。如果定义多个授权模块，其中一个授权模块通过，系统则认为授权通过。</p>
+<h2 id="准入"><a href="#准入" class="headerlink" title="准入"></a>准入</h2><p>除了授权控制，admission control在请求方面做了进一步准入控制。与授权模块的区别在于，admission control可以访问到系统中的object，对object的创建、删除、更新等操作进行控制。</p>
+<p>举例一个简单的场景，如果系统管理员定义了一个namespace最多使用20G内存（quota），当前这个空间下已经使用了18G。此时一个具有操作权限的用户创建了一个服务，配置的quota是4G。这个请求会正确通过认证和授权控制，因为这两个步骤无法对系统中的对象进行访问和操作限制。这个动作的限制，就是由admission控制的。</p>
+<p>除了对请求操作有拒绝策略规则之外，admission control还可以给请求增加默认字段。</p>
+<ul>
+<li>AlwaysAdmit：允许所有请求通过</li>
+<li>AlwaysPullImages：在启动容器之前总是去下载镜像，相当于每当容器启动前做一次用于是否有权使用该容器镜像的检查</li>
+<li>AlwaysDeny：禁止所有请求通过，用于测试</li>
+<li>DenyEscalatingExec：拒绝exec和attach命令到有升级特权的Pod的终端用户访问。如果集中包含升级特权的容器，而要限制终端用户在这些容器中执行命令的能力，推荐使用此插件</li>
+<li>ImagePolicyWebhook</li>
+<li>ServiceAccount：这个插件实现了serviceAccounts等等自动化，如果使用ServiceAccount对象，强烈推荐使用这个插件</li>
+<li>SecurityContextDeny：将Pod定义中定义了的SecurityContext选项全部失效。SecurityContext包含在容器中定义了操作系统级别的安全选型如fsGroup，selinux等选项</li>
+<li>ResourceQuota：用于namespace上的配额管理，它会观察进入的请求，确保在namespace上的配额不超标。推荐将这个插件放到准入控制器列表的最后一个。ResourceQuota准入控制器既可以限制某个namespace中创建资源的数量，又可以限制某个namespace中被Pod请求的资源总量。ResourceQuota准入控制器和ResourceQuota资源对象一起可以实现资源配额管理。</li>
+<li>LimitRanger：用于Pod和容器上的配额管理，它会观察进入的请求，确保Pod和容器上的配额不会超标。准入控制器LimitRanger和资源对象LimitRange一起实现资源限制管理</li>
+<li>NamespaceLifecycle：当一个请求是在一个不存在的namespace下创建资源对象时，该请求会被拒绝。当删除一个namespace时，将会删除该namespace下的所有资源对象</li>
+<li>DefaultStorageClass</li>
+<li>DefaultTolerationSeconds</li>
+<li>PodSecurityPolicy</li>
+</ul>
+<p>当Kubernetes版本&gt;=1.4.0，官方建议使用这些插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,ResourceQuota</div></pre></td></tr></table></figure>
+<p>与授权不同的是， 准入模块中的任何一个模块返回失败，请求会被拒绝。</p>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><ul>
+<li><code>Localhost port</code>:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- is intended for testing and bootstrap, and for other components of the master node</div><div class="line">  (scheduler, controller-manager) to talk to the API</div><div class="line">- no TLS</div><div class="line">- default is port 8080, change with `--insecure-port` flag.</div><div class="line">- defaults IP is localhost, change with `--insecure-bind-address` flag.</div><div class="line">- request **bypasses** authentication and authorization modules.</div><div class="line">- request handled by admission control module(s).</div><div class="line">- protected by need to have host access</div></pre></td></tr></table></figure>
+<ul>
+<li><code>Secure port</code>:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- use whenever possible</div><div class="line">- uses TLS.  Set cert with `--tls-cert-file` and key with `--tls-private-key-file` flag.</div><div class="line">- default is port 6443, change with `--secure-port` flag.</div><div class="line">- default IP is first non-localhost network interface, change with `--bind-address` flag.</div><div class="line">- request handled by authentication and authorization modules.</div><div class="line">- request handled by admission control module(s).</div><div class="line">- authentication and authorisation modules run.</div></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://tonybai.com/2016/11/25/the-security-settings-for-kubernetes-cluster/" target="_blank" rel="external">http://tonybai.com/2016/11/25/the-security-settings-for-kubernetes-cluster/</a></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/kubernetes/" rel="tag"># kubernetes</a>
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
   </div>
 
 
@@ -348,6 +552,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MS82NTI2"></div>
+    
+  </div>
+
 
         </div>
         
@@ -368,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -431,6 +650,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安全机制"><span class="nav-number">1.</span> <span class="nav-text">安全机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#认证"><span class="nav-number">2.</span> <span class="nav-text">认证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#授权"><span class="nav-number">3.</span> <span class="nav-text">授权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准入"><span class="nav-number">4.</span> <span class="nav-text">准入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口"><span class="nav-number">5.</span> <span class="nav-text">端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -544,10 +779,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -576,6 +811,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
